@@ -21,97 +21,95 @@ def create_max_heap(unsorted_array)
 end
 
 def fix_max_heap(node_num, unsorted_array)
-	index = node_num - 1
-	max = unsorted_array[index]
-	new_index = index
+  index = node_num - 1
+  max = unsorted_array[index]
+  new_index = index
 
-	if unsorted_array.length < (node_num) * 2
-		return max 
-	elsif unsorted_array.length >= (node_num) * 2 + 1
-		((node_num) * 2).upto((node_num) * 2 + 1) do |check_node|
-			contested_value = unsorted_array[check_node - 1]
-			if  contested_value > max
-				max = contested_value
-				new_index = check_node - 1
-			end
-		end
-	else
-		contested_value = unsorted_array[(node_num) * 2 - 1]
-		if contested_value > max
-			max = contested_value
-			new_index = (node_num) * 2 - 1
-		end
-	end
+  if unsorted_array.length < (node_num) * 2
+    return max 
+  elsif unsorted_array.length >= (node_num) * 2 + 1
+    ((node_num) * 2).upto((node_num) * 2 + 1) do |check_node|
+      contested_value = unsorted_array[check_node - 1]
+      if  contested_value > max
+        max = contested_value
+        new_index = check_node - 1
+      end
+    end
+  else
+    contested_value = unsorted_array[(node_num) * 2 - 1]
+    if contested_value > max
+      max = contested_value
+      new_index = (node_num) * 2 - 1
+    end
+  end
 
-	unless new_index == index
-		temp = unsorted_array[index]
-		unsorted_array[index] = unsorted_array[new_index]
-		unsorted_array[new_index] = temp
-		fix_max_heap(new_index + 1, unsorted_array)
-	else
-		unsorted_array
-	end
+  unless new_index == index
+    temp = unsorted_array[index]
+    unsorted_array[index] = unsorted_array[new_index]
+    unsorted_array[new_index] = temp
+    fix_max_heap(new_index + 1, unsorted_array)
+  else
+    unsorted_array
+  end
 end
 
 def create_min_heap(unsorted_array)
-	(unsorted_array.length / 2).downto(1) do |node_num|
-		fix_min_heap(node_num, unsorted_array)
-	end
+  (unsorted_array.length / 2).downto(1) do |node_num|
+    fix_min_heap(node_num, unsorted_array)
+  end
 end
 
 def fix_min_heap(node_num, unsorted_array)
-	index = node_num - 1
-	min = unsorted_array[index]
-	new_index = index
+  index = node_num - 1
+  min = unsorted_array[index]
+  new_index = index
 
-	if unsorted_array.length < (node_num) * 2
-		return min 
-	elsif unsorted_array.length >= (node_num) * 2 + 1
-		((node_num) * 2).upto((node_num) * 2 + 1) do |check_node|
-			contested_value = unsorted_array[check_node - 1]
-			if  contested_value < min
-				min = contested_value
-				new_index = check_node - 1
-			end
-		end
-	else
-		contested_value = unsorted_array[(node_num) * 2 - 1]
-		if contested_value < min
-			min = contested_value
-			new_index = (node_num) * 2 - 1
-		end
-	end
+  if unsorted_array.length < (node_num) * 2
+    return min 
+  elsif unsorted_array.length >= (node_num) * 2 + 1
+    ((node_num) * 2).upto((node_num) * 2 + 1) do |check_node|
+      contested_value = unsorted_array[check_node - 1]
+      if  contested_value < min
+        min = contested_value
+        new_index = check_node - 1
+      end
+    end
+  else
+    contested_value = unsorted_array[(node_num) * 2 - 1]
+    if contested_value < min
+      min = contested_value
+      new_index = (node_num) * 2 - 1
+    end
+  end
 
-	unless new_index == index
-		temp = unsorted_array[index]
-		unsorted_array[index] = unsorted_array[new_index]
-		unsorted_array[new_index] = temp
-		fix_min_heap(new_index + 1, unsorted_array)
-	else
-		unsorted_array
-	end
+  unless new_index == index
+    temp = unsorted_array[index]
+    unsorted_array[index] = unsorted_array[new_index]
+    unsorted_array[new_index] = temp
+    fix_min_heap(new_index + 1, unsorted_array)
+  else
+    unsorted_array
+  end
 end
 
 def get_min(sorted_array)
-	min = sorted_array[0]
+  min = sorted_array[0]
   temp = min
   sorted_array[0] = sorted_array.last
   sorted_array[sorted_array.length - 1] = min 
   sorted_array.pop
   fix_min_heap(1, sorted_array)
-  #puts sorted_array.inspect
-	min
+  min
 end
 
 def get_max(sorted_array)
-	max = sorted_array[0]
+  max = sorted_array[0]
   temp = max
   sorted_array[0] = sorted_array.last
   sorted_array[sorted_array.length - 1] = max 
   sorted_array.pop
   fix_max_heap(1, sorted_array)
-  #puts sorted_array.inspect
-	max
+  max
 end
 
 
@@ -119,46 +117,45 @@ end
 # wicked cool ruby scripts
 
 def heap_sort2(a)
-     size = a.length
-     temp = 0
-     i = (size/2)-1
+  size = a.length
+  temp = 0
+  i = (size/2)-1
 
-     while i >= 0
-         sift_down(a,i,size)
-         i-=1
-     end
+  while i >= 0
+    sift_down(a,i,size)
+    i-=1
+  end
 
-     i=size-1
-     while i >= 1
-         a[0], a[1] = a[1], a[0]
-         sift_down(a, 0, i-1)
-         i-=1
-     end
-     return a
- end
+  i=size-1
+  while i >= 1
+    a[0], a[1] = a[1], a[0]
+    sift_down(a, 0, i-1)
+    i-=1
+  end
+  return a
+end
 
- def sift_down(num, root, bottom)
-     done = false
-     max_child = 0
-     temp  = 0
+def sift_down(num, root, bottom)
+  done = false
+  max_child = 0
+  temp  = 0
 
-     while root*2 <= bottom and !done
-         if root*2 == bottom
-             max_child = root * 2
-         elsif num[root*2].to_i > num[root*2+1].to_i
-             max_child = root * 2
-         else
-             max_child = root * 2 + 1
-         end
-
-         if num[root] < num[max_child]
-             num[root], num[max_child] = num[max_child], num[root]
-             root = max_child
-         else
-             done = true
-         end
-     end
- end
+  while root*2 <= bottom and !done
+    if root*2 == bottom
+      max_child = root * 2
+    elsif num[root*2].to_i > num[root*2+1].to_i
+      max_child = root * 2
+    else
+      max_child = root * 2 + 1
+    end
+    if num[root] < num[max_child]
+      num[root], num[max_child] = num[max_child], num[root]
+      root = max_child
+    else
+      done = true
+    end
+  end
+end
 
 # heap sort from website 
 # http://eigenclass.blogspot.com/2008/10/sorting-algs-in-ruby.html
@@ -203,75 +200,75 @@ def build_heap(list)
 end
 
 
-  def heapsort(unsorted_array)
-    heapsort2(unsorted_array)
-  end
+def heapsort(unsorted_array)
+  heapsort2(unsorted_array)
+end
  
-  def heapsort2(arr)
+def heapsort2(arr)
     # in pseudo-code, heapify only called once, so inline it here
-    ((arr.length - 2) / 2).downto(0) {|start| siftdown(arr, start, arr.length - 1)}
+  ((arr.length - 2) / 2).downto(0) {|start| siftdown(arr, start, arr.length - 1)}
  
     # "end" is a ruby keyword
-    (arr.length - 1).downto(1) do |end_|
-      arr[end_], arr[0] = arr[0], arr[end_]
-      siftdown(arr, 0, end_ - 1)
-    end
-    self
+  (arr.length - 1).downto(1) do |end_|
+    arr[end_], arr[0] = arr[0], arr[end_]
+    siftdown(arr, 0, end_ - 1)
   end
+  self
+end
  
-  def siftdown(arr,start, end_)
-    root = start
-    loop do
-      child = root * 2 + 1
-      break if child > end_
-      if child + 1 <= end_ and arr[child] < arr[child + 1]
-        child += 1
-      end
-      if arr[root] < arr[child]
-        arr[root], arr[child] = arr[child], arr[root]
-        root = child
-      else
-        break
-      end
+def siftdown(arr,start, end_)
+  root = start
+  loop do
+    child = root * 2 + 1
+    break if child > end_
+    if child + 1 <= end_ and arr[child] < arr[child + 1]
+      child += 1
+    end
+    if arr[root] < arr[child]
+      arr[root], arr[child] = arr[child], arr[root]
+      root = child
+    else
+      break
     end
   end
+end
   
   
-  # http://www.codecodex.com/wiki/Heapsort#Ruby
-  # implementation of heapsort
+# http://www.codecodex.com/wiki/Heapsort#Ruby
+# implementation of heapsort
   
-  def heap_sort3(array)  
-    n = array.size  
-    a = [nil] + array             # heap root [0]=>[1]  
-    (n / 2).downto(1) do |i|  
-      down_heap(a, i, n)  
-    end  
-    while n > 1  
-      a[1], a[n] = a[n], a[1]  
-      n -= 1  
-      down_heap(a, 1, n)  
-    end  
-    a.drop(1)                     # heap root [1]=>[0]  
+def heap_sort3(array)  
+  n = array.size  
+  a = [nil] + array             # heap root [0]=>[1]  
+  (n / 2).downto(1) do |i|  
+    down_heap(a, i, n)  
   end  
-  
-  def down_heap(a, parent, limit)  
-    wk = a[parent]  
-    while (child = 2 * parent) <= limit  
-      child += 1  if child < limit and a[child] < a[child + 1]  
-      break  if wk >= a[child]  
-      a[parent] = a[child]  
-      parent = child  
-    end  
-    a[parent] = wk  
+  while n > 1  
+    a[1], a[n] = a[n], a[1]  
+    n -= 1  
+    down_heap(a, 1, n)  
   end  
+  a.drop(1)                     # heap root [1]=>[0]  
+end  
+  
+def down_heap(a, parent, limit)  
+  wk = a[parent]  
+  while (child = 2 * parent) <= limit  
+    child += 1  if child < limit and a[child] < a[child + 1]  
+    break  if wk >= a[child]  
+    a[parent] = a[child]  
+    parent = child  
+  end  
+  a[parent] = wk  
+end  
   
   
 # i was going to add a display of the tree here...will get back to later  
 def display_tree(an_array)
-	an_array.length
-	count = 1
-	(count - 1).upto(count) do
-	end
+  an_array.length
+  count = 1
+  (count - 1).upto(count) do
+  end
 end
 
 
