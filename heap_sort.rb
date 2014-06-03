@@ -1,23 +1,19 @@
 require "time"
 #require "SVG/Graph/Line"
 
+
+######################################################################################
 # just took a look at lecture: 
 # MIT 6.006 Introduction to Algorithms, Fall 2011
 # View the complete course: http://ocw.mit.edu/6-006F11
 # Instructor: Srini Devadas
-# Keith Pike implementation of heap sort
+######################################################################################
 
+# Keith Pike implementation of heap sort
 def create_max_heap(unsorted_array)
-  #the_end = (unsorted_array.length / 2)
-  #node_num = 1
-  #for i in (1..the_end) do
-  #  node_num = the_end - i
-  #  fix_max_heap(node_num, unsorted_array)
-  #end
-	
   (unsorted_array.length / 2).downto(1) do |node_num|
-		fix_max_heap(node_num, unsorted_array)
-	end
+    fix_max_heap(node_num, unsorted_array)
+  end
 end
 
 def fix_max_heap(node_num, unsorted_array)
@@ -112,10 +108,10 @@ def get_max(sorted_array)
   max
 end
 
+#########################################################################################
 
 # source: http://my.safaribooksonline.com/book/web-development/ruby/9781593271824/sorting-algorithms/heap_sort
 # wicked cool ruby scripts
-
 def heap_sort2(a)
   size = a.length
   temp = 0
@@ -157,9 +153,10 @@ def sift_down(num, root, bottom)
   end
 end
 
+#########################################################################################
+
 # heap sort from website 
 # http://eigenclass.blogspot.com/2008/10/sorting-algs-in-ruby.html
-
 def heap_sort (list)
   sl = []
   heap = build_heap(list)
@@ -233,10 +230,10 @@ def siftdown(arr,start, end_)
   end
 end
   
-  
+##########################################################################################
+
 # http://www.codecodex.com/wiki/Heapsort#Ruby
 # implementation of heapsort
-  
 def heap_sort3(array)  
   n = array.size  
   a = [nil] + array             # heap root [0]=>[1]  
@@ -262,7 +259,9 @@ def down_heap(a, parent, limit)
   a[parent] = wk  
 end  
   
-  
+############################################################################################
+
+
 # i was going to add a display of the tree here...will get back to later  
 def display_tree(an_array)
   an_array.length
@@ -273,7 +272,22 @@ end
 
 
 
+# RUN THE TEST!
 
+some_array = *(1..10_000_000) #this takes a little while
+#puts "array created"
+#create_min_heap(some_array)
+some_time = Time.now
+create_max_heap(some_array)
+puts Time.now - some_time
+#puts "#{Time.now - some_time} seconds"
+
+
+
+
+###############################################################################################
+
+# in case I want random numbers instead of a straight list
 
 #some_array = []
 #srand()
@@ -304,9 +318,9 @@ average_heap_times = []
   puts average
 end
 
- 
+############################################################################################## 
 
-
+# Get a SVG showing how long each amount of numbers takes per number
 
 fields = [100000,1000000,10000000,100000000].map{|value|value.to_s}
 
@@ -329,34 +343,31 @@ print "Content-type: image/svg+xml\r\n\r\n";
 print graph.burn();
 =end
 
-#some_array = [1,2,3,4,5,6,7,8,9,10]
+###########################################################################################################
 
-#some_array = [16,14,10,8, 7, 9, 3, 2, 4, 1]
-#some_array = [15, 19, 10, 7, 17, 16]
-#heapsort(some_array) # inneficient 1,000,000 @ 14.67 sec
-#display_tree
+#My implementation
 
 #create_max_heap(some_array) # 1,000,000 @ 1.17 sec, 10,000,000 @ 11.5 sec, 100,000,000 @ 121.48 sec
+
+
+###########################################################################################################
+
+# http://eigenclass.blogspot.com/2008/10/sorting-algs-in-ruby.html implementation
+
 #heap_sort(some_array) # super inneficient 1,000,000 random took 400+ secs
+
+###########################################################################################################
+
+# http://my.safaribooksonline.com/book/web-development/ruby/9781593271824/sorting-algorithms/heap_sort
+# wicked cool ruby scripts implementation
+
 #heap_sort2(some_array) #works fine with 1,000,000 (2.53 sec) 10,000,000 @ 43.7 sec
+
+###########################################################################################################
+
+# http://www.codecodex.com/wiki/Heapsort#Ruby
+# implementation of heapsort
+
 #heap_sort3(some_array) # 1,000,000 5.72 sec
-#puts "#{Time.now - some_time} seconds"
-#sorted_array = []
 
-some_array = *(1..1_000_000_0)
-#puts "array created"
-#create_min_heap(some_array)
-some_time = Time.now
-create_max_heap(some_array)
-puts Time.now - some_time
-#puts "#{Time.now - some_time} seconds"
-#some_time = Time.now
-
-#1000000.times do
-#  sorted_array << get_max(some_array)
-#end
-#puts "#{Time.now - some_time} seconds"
-#puts sorted_array.inspect
-
-
-#puts some_array.inspect
+###########################################################################################################
