@@ -29,7 +29,7 @@ http://eigenclass.blogspot.com/2008/10/sorting-algs-in-ruby.html implementation
 
 http://my.safaribooksonline.com/book/web-development/ruby/9781593271824/sorting-algorithms/heap_sort
 wicked cool ruby scripts implementation  
-works fine with 1,000,000 (2.53 sec) 10,000,000 @ 43.7 sec
+1,000,000 @ 2.53 sec, 10,000,000 @ 43.7 sec
 
 ###########################################################################################################
 
