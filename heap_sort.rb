@@ -197,10 +197,8 @@ def build_heap(list)
 end
 
 
-def heapsort(unsorted_array)
-  heapsort2(unsorted_array)
-end
- 
+
+################################################################################
 def heapsort2(arr)
     # in pseudo-code, heapify only called once, so inline it here
   ((arr.length - 2) / 2).downto(0) {|start| siftdown(arr, start, arr.length - 1)}
@@ -274,13 +272,16 @@ end
 
 # RUN THE TEST!
 
-some_array = *(1..10_000_000) #this takes a little while
-#puts "array created"
-#create_min_heap(some_array)
+some_array = *(1..100_000_000) #this takes a little while
+puts "array created"
+create_min_heap(some_array)
+
+
+
 some_time = Time.now
 create_max_heap(some_array)
 puts Time.now - some_time
-#puts "#{Time.now - some_time} seconds"
+puts "#{Time.now - some_time} seconds"
 
 
 
@@ -347,7 +348,7 @@ print graph.burn();
 
 #My implementation
 
-#create_max_heap(some_array) # 1,000,000 @ 1.17 sec, 10,000,000 @ 11.5 sec, 100,000,000 @ 121.48 sec
+#create_max_heap(some_array) # 1,000,000 @ 1.02 sec, 10,000,000 @ 9.43 sec, 100,000,000 @ 111.43 sec
 
 
 ###########################################################################################################
@@ -361,13 +362,13 @@ print graph.burn();
 # http://my.safaribooksonline.com/book/web-development/ruby/9781593271824/sorting-algorithms/heap_sort
 # wicked cool ruby scripts implementation
 
-#heap_sort2(some_array) #works fine with 1,000,000 (2.53 sec) 10,000,000 @ 43.7 sec
+#heap_sort2(some_array) #works fine with 1,000,000 2.09 sec, 10,000,000 @ 21.56 sec, 100,000,000 221.93 sec
 
 ###########################################################################################################
 
 # http://www.codecodex.com/wiki/Heapsort#Ruby
 # implementation of heapsort
 
-#heap_sort3(some_array) # 1,000,000 5.72 sec
+#heap_sort3(some_array) # 1,000,000 @ 3.63 sec, 10,000,000 @ 41.82 sec, 100,000,000 @ 473.65 sec
 
 ###########################################################################################################
