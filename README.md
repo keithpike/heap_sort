@@ -18,24 +18,24 @@ Results of the tests are as follows and commented inside the code:
 ###########################################################################################################
 
 My implementation  
-1,000,000 @ 1.17 sec, 10,000,000 @ 11.5 sec, 100,000,000 @ 121.48 sec, 1,000,000,000 (ran outta ram)
+1,000,000 @ 1.02 sec, 10,000,000 @ 9.43 sec, 100,000,000 @ 111.43 sec 1,000,000,000 (ran out of ram)
 
 ###########################################################################################################
 
 http://eigenclass.blogspot.com/2008/10/sorting-algs-in-ruby.html implementation  
-1,000,000 random took 400+ secs
+1,000,000 @ 416.04 sec (no other tests run)
 
 ###########################################################################################################
 
 http://my.safaribooksonline.com/book/web-development/ruby/9781593271824/sorting-algorithms/heap_sort
 wicked cool ruby scripts implementation  
-1,000,000 @ 2.53 sec, 10,000,000 @ 43.7 sec
+1,000,000 @ 2.09 sec, 10,000,000 @ 21.56 sec, 100,000,000 @ 221.93 sec
 
 ###########################################################################################################
 
 http://www.codecodex.com/wiki/Heapsort#Ruby
 implementation of heapsort  
-1,000,000 5.72 sec
+1,000,000 @ 3.63 sec, 10,000,000 @ 41.82 sec, 100,000,000 @ 473.65 sec
 
 ###########################################################################################################
 

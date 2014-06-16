@@ -26,7 +26,7 @@ def fix_max_heap(node_num, unsorted_array)
   elsif unsorted_array.length >= (node_num) * 2 + 1
     ((node_num) * 2).upto((node_num) * 2 + 1) do |check_node|
       contested_value = unsorted_array[check_node - 1]
-      if  contested_value > max
+      if contested_value > max
         max = contested_value
         new_index = check_node - 1
       end
@@ -272,14 +272,14 @@ end
 
 # RUN THE TEST!
 
-some_array = *(1..100_000_000) #this takes a little while
+some_array = *(1..1_000_000) #this takes a little while
 puts "array created"
 create_min_heap(some_array)
 
 
 
 some_time = Time.now
-create_max_heap(some_array)
+heap_sort(some_array)
 puts Time.now - some_time
 puts "#{Time.now - some_time} seconds"
 
@@ -355,14 +355,14 @@ print graph.burn();
 
 # http://eigenclass.blogspot.com/2008/10/sorting-algs-in-ruby.html implementation
 
-#heap_sort(some_array) # super inneficient 1,000,000 random took 400+ secs
+#heap_sort(some_array) # super inneficient 1,000,000 @ 416.04 sec (no other tests run)
 
 ###########################################################################################################
 
 # http://my.safaribooksonline.com/book/web-development/ruby/9781593271824/sorting-algorithms/heap_sort
 # wicked cool ruby scripts implementation
 
-#heap_sort2(some_array) #works fine with 1,000,000 2.09 sec, 10,000,000 @ 21.56 sec, 100,000,000 221.93 sec
+#heap_sort2(some_array) #works fine with 1,000,000 @ 2.09 sec, 10,000,000 @ 21.56 sec, 100,000,000 @ 221.93 sec
 
 ###########################################################################################################
 
